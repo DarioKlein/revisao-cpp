@@ -138,11 +138,68 @@ void exercicio5() {
     }
 
     cout << "Media dos numeros < 300: " << soma / cNumeros300 << endl;
-    cout << "Percentual de numeros maiores que 100: " << qtdNumeros100 / c * 100 << "%"  << endl;
+    cout << "Percentual de numeros maiores que 100: " << qtdNumeros100 / c * 100 << "%" << endl;
     cout << "Media dos numeros pares: " << sPar / qtdNumerosPar << endl;
     cout << "Soma dos impares: " << sImpar << endl;
 }
 
+void exercicio6() {
+    string vNome[5];
+    double vCons[5];
+
+    double s = 0;
+    int c = 0;
+
+    for (int i = 0; i < 5; i++) {
+        cout << "Digite o nome do morador: ";
+        cin >> vNome[i];
+
+        cout << "\nDigite o valor do consumo de agua em mts cubicos: ";
+        cin >> vCons[i];
+    }
+
+
+    cout << "Moradores que consumiram mais de 30mts cubicos: " << endl;
+    for (int i = 0; i < 5; i++) {
+        if (vCons[i] > 30) {
+            cout << vNome[i] << endl;
+        }
+
+        if (vCons[i] < 100) {
+            s += vCons[i];
+            c++;
+        }
+    }
+
+    cout << "A media de consumo dos moradores que consumiram menos de 100mts: " << s / c << endl;
+
+    for (int i = 0; i < 5; i++) {
+        int chave = vCons[i];
+        int j = i - 1;
+
+        while (j >= 0 && vCons[j] < chave) {
+            vCons[j + 1] = vCons[j];
+            j--;
+        }
+        vCons[j + 1] = chave;
+    }
+
+    cout << "Ordem decrescente" << endl;
+    cout << "================================" << endl;
+
+    for (int i = 0; i < 5; i++) {
+        cout << vCons[i] << endl;
+    }
+}
+
+void exercicio7() {
+    for (int i = 1000; i <= 2000; i++) {
+        if (i % 11 == 5) {
+            cout << i << endl;
+        }
+    }
+}
+
 int main() {
-    exercicio5();
+    exercicio7();
 }
