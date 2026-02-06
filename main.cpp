@@ -200,6 +200,135 @@ void exercicio7() {
     }
 }
 
+void exercicio8() {
+    int m[4][4];
+
+    double sImpar = 0;
+    double sPar = 0;
+    int qtdPar = 0;
+    int qtdMenorQue100 = 0;
+    double somaColuna[4];
+    double somaLinha[4];
+
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            cout << "Digite um valor" << endl;
+            cin >> m[i][j];
+
+            if (m[i][j] % 2 != 0) {
+                sImpar += m[i][j];
+            }
+
+            if (m[i][j] < 100) {
+                qtdMenorQue100++;
+            }
+
+            if (m[i][j] % 2 == 0 && m[i][j] > 30) {
+                sPar += m[i][j];
+                qtdPar++;
+            }
+        }
+    }
+
+    int maiorValor = m[0][0];
+    int menorValor = m[0][0];
+
+    for (int i = 0; i < 4; i++) {
+        somaLinha[i] = 0;
+        somaColuna[i] = 0;
+        for (int j = 0; j < 4; j++) {
+            if (m[i][j] > maiorValor) {
+                maiorValor = m[i][j];
+            }
+
+            if (m[i][j] < menorValor) {
+                menorValor = m[i][j];
+            }
+            somaLinha[i] += m[i][j];
+            somaColuna[i] += m[j][i];
+        }
+    }
+
+    cout << "=============================" << endl;
+    cout << "Soma dos valores impares da matriz: " << sImpar << endl;
+    cout << "=============================" << endl;
+    cout << "Quantidade de elementos que 100: " << qtdMenorQue100 << endl;
+    cout << "=============================" << endl;
+    cout << "Media dos valores pares maiores que 30: " << sPar / qtdPar << endl;
+
+
+
+    for (int i = 0; i < 4; i++) {
+        cout << "=============================" << endl;
+        cout << "Soma coluna " << i + 1 << ": " << somaColuna[i] << endl;
+        cout << "Media da linha " << i + 1 << ": " << somaLinha[i] / 4 << endl;
+    }
+
+    cout << "=============================" << endl;
+    cout << "Maior valor armazenado: " << maiorValor << endl;
+    cout << "=============================" << endl;
+    cout << "Menor valor armazenado: " << menorValor << endl;
+}
+
+void exercicio9() {
+
+    int n;
+    double c = 0;
+    double sPar = 0;
+    double sImpar = 0;
+    int qtdImpar = 0;
+    double qtdNumeroMenorQue300 = 0;
+    double soma25 = 0;
+    int qtdMaior25 = 0;
+
+    while (true) {
+        cout << "Digite 0 para encerrar a sequencia" << endl;
+        cout << "Digite um numero:";
+        cin >> n;
+
+        if (n == 0) {
+            break;
+        }
+
+        if (n % 2 == 0 ) {
+            sPar += n;
+        }
+
+        if (n % 2 != 0) {
+            sImpar += n;
+            qtdImpar++;
+        }
+
+        if (n < 300) {
+            qtdNumeroMenorQue300++;
+        }
+
+        if (n > 25) {
+            soma25 += n;
+            qtdMaior25++;
+        }
+
+        c++;
+    }
+
+    cout << "Soma dos numeros pares: " << sPar << endl;
+    cout << "Media dos impares: " << sImpar / qtdImpar << endl;
+    cout << "Percentual dos numeros menores que 300: " << qtdNumeroMenorQue300 / c * 100 << "%" << endl;
+    cout << "Media dos numeros maiores que 25: " << soma25 / qtdMaior25 << endl;
+}
+
+void exercicio10() {
+
+    int n[40];
+
+    for (int i = 0; i < 40; i++) {
+        cout << "Digite um numero";
+        cin >> n[i];
+    }
+
+}
+
+
 int main() {
-    exercicio7();
+    exercicio9();
 }
