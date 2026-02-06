@@ -257,7 +257,6 @@ void exercicio8() {
     cout << "Media dos valores pares maiores que 30: " << sPar / qtdPar << endl;
 
 
-
     for (int i = 0; i < 4; i++) {
         cout << "=============================" << endl;
         cout << "Soma coluna " << i + 1 << ": " << somaColuna[i] << endl;
@@ -271,7 +270,6 @@ void exercicio8() {
 }
 
 void exercicio9() {
-
     int n;
     double c = 0;
     double sPar = 0;
@@ -290,7 +288,7 @@ void exercicio9() {
             break;
         }
 
-        if (n % 2 == 0 ) {
+        if (n % 2 == 0) {
             sPar += n;
         }
 
@@ -318,17 +316,212 @@ void exercicio9() {
 }
 
 void exercicio10() {
-
     int n[40];
 
     for (int i = 0; i < 40; i++) {
-        cout << "Digite um numero";
+        cout << "Digite um numero: ";
         cin >> n[i];
+
+        if (i > 0) {
+            for (int j = 0; j < i; j++) {
+                if (n[i] == n[j]) {
+                    cout << "O numero digitado ja existe digite outro" << endl;
+                    i--;
+                }
+            }
+        }
     }
 
+    int num;
+
+    int vCont[40];
+
+    for (int i = 0; i < 40; i++) {
+        vCont[i] = 0;
+    }
+
+    while (true) {
+        cout << "Digite zero para encerrar o programa" << endl;
+        cout << "Digite um numero: " << endl;
+        cin >> num;
+
+        if (num == 0) {
+            break;
+        }
+
+        for (int i = 0; i < 40; i++) {
+            if (num == n[i]) {
+                vCont[i]++;
+            }
+        }
+
+        for (int i = 0; i < 40; i++) {
+            cout << "O numero " << n[i] << "foi digitado: " << vCont[i] << "vezes" << endl;
+        }
+    }
+}
+
+void exercicio11() {
+    int p[5][5];
+    bool ehSimetrica = true;
+
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            cout << "Digite um numero: ";
+            cin >> p[i][j];
+        }
+    }
+
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (p[i][j] != p[j][i]) {
+                ehSimetrica = false;
+            }
+        }
+    }
+
+    if (ehSimetrica == false) {
+        cout << "A matriz nao e simetrica";
+    } else {
+        cout << "A matriz e simetrica";
+    }
+}
+
+void exercicio12() {
+    double d[2][2];
+
+    double sDigPrinc = 0;
+    int c = 0;
+
+    double sDiagSecundaria = 0;
+
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 2; j++) {
+            cout << "Digite um numero: ";
+            cin >> d[i][j];
+
+            if (i == j) {
+                sDigPrinc += d[i][j];
+                c++;
+            }
+
+            if (i + j == 1) {
+                sDiagSecundaria += d[i][j];
+            }
+        }
+    }
+
+    cout << "Media diagonal principal: " << sDigPrinc / c << endl;
+    cout << "Soma diagonal secundaria: " << sDiagSecundaria << endl;
+}
+
+void exercicio13() {
+    struct atleta {
+        string nome;
+        double tempo;
+        double pontos;
+    };
+
+    atleta a;
+
+    cout << "Digite o nome do atleta: " << endl;
+    cin >> a.nome;
+
+    cout << "Digite o tempo do atleta em segundos: " << endl;
+    cin >> a.tempo;
+
+    if (a.tempo < 10) {
+        a.pontos = 100;
+    } else if (a.tempo >= 10 && a.tempo <= 13) {
+        a.pontos = 70;
+    } else {
+        a.pontos = 40;
+    }
+
+    cout << "A pontuacao de " << a.nome << " foi de: " << a.pontos << " pontos" << endl;
+}
+
+void exercicio14() {
+    double sequencia1 = 1.0;
+    double denominador = 2;
+
+    for (int i = 0; i < 30; i++) {
+        if (i % 2 == 0) {
+            sequencia1 -= 1.0 / denominador;
+        } else {
+            sequencia1 += 1.0 / denominador;
+        }
+        denominador += 2.0;
+    }
+
+    double sequencia2 = 63;
+    double numerador = 61;
+    double denominador2 = 1;
+
+    for (int i = 0; i < 30; i++) {
+        sequencia2 += numerador / denominador2;
+        denominador2++;
+        numerador -= 2;
+    }
+
+    double sequencia3 = 0;
+    double numerador3 = 480;
+    double denominador3 = 10;
+
+    for (int i = 0; i < 30; i++) {
+        if (i % 2 == 0) {
+            sequencia3 += numerador3 / denominador3;
+        } else {
+            sequencia3 -= numerador3 / denominador3;
+        }
+
+        numerador3 -= 5;
+        denominador3++;
+    }
+
+    cout << "Resultado sequencia 1: " << sequencia1 << endl;
+    cout << "Resultado sequencia 2: " << sequencia2 << endl;
+    cout << "Resultado sequencia 3: " << sequencia3 << endl;
+}
+
+void exercicio15() {
+    int m;
+    int n;
+    int sImpar = 0;
+    int c = 1;
+
+    int menorNumero = 0;
+    int maiorNumero = 0;
+
+    cout << "Digite o numero M: " << endl;
+    cin >> m;
+
+    cout << "Digite o numero N: " << endl;
+    cin >> n;
+
+    if (m > n) {
+        maiorNumero = m;
+        menorNumero = n;
+    } else {
+        menorNumero = m;
+        maiorNumero = n;
+    }
+
+    for (int i = menorNumero + 1; i < maiorNumero; i++) {
+        if (i % 2 != 0) {
+            sImpar += i;
+            cout << i << " - ";
+            if (c % 6 == 0) {
+                cout << endl;
+            }
+            c++;
+        }
+    }
+
+    cout << "\nA soma dos impares entre " << menorNumero << " e " << maiorNumero << " e: " << sImpar << endl;
 }
 
 
 int main() {
-    exercicio9();
+    exercicio15();
 }
