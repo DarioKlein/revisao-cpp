@@ -488,7 +488,6 @@ void exercicio15() {
     int m;
     int n;
     int sImpar = 0;
-    int c = 1;
 
     int menorNumero = 0;
     int maiorNumero = 0;
@@ -509,16 +508,15 @@ void exercicio15() {
 
     for (int i = menorNumero + 1; i < maiorNumero; i++) {
         if (i % 2 != 0) {
-            sImpar += i;
-            cout << i << " - ";
-            if (c % 6 == 0) {
-                cout << endl;
+            sImpar+= i;
+            if (i != maiorNumero - 1) {
+                cout  << i << " - ";
             }
-            c++;
         }
     }
 
     cout << "\nA soma dos impares entre " << menorNumero << " e " << maiorNumero << " e: " << sImpar << endl;
+
 }
 
 
