@@ -3,23 +3,20 @@
 using namespace std;
 
 void exercicio1() {
-    float salarios[5];
+    float salarios[50];
 
     double impostoTotal = 0;
     double salarioFinalTotal = 0;
 
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 50; i++) {
         cout << "Entre com o salario do " << i + 1 << " funcionario: ";
         cin >> salarios[i];
 
-        double salarioComGratificacao = salarios[i] * 1.16;
-        double imposto = salarioComGratificacao * 0.3;
+        impostoTotal += salarios[i] * 0.3;
+        salarioFinalTotal += salarios[i] * 1.16;
 
-        impostoTotal += imposto;
-        salarioFinalTotal += salarioComGratificacao - imposto;
-
-        cout << "Salario final: R$ " << salarioComGratificacao - imposto << endl;
-        cout << "Imposto pago: R$ " << imposto << endl;
+        cout << "Salario final: R$ " << salarios[i] * 1.16 - salarios[i] * 0.3 << endl;
+        cout << "Imposto pago: R$ " << salarios[i] * 0.3 << endl;
     }
 
     cout << "Valor do salario final: R$ " << salarioFinalTotal << endl;
@@ -508,18 +505,60 @@ void exercicio15() {
 
     for (int i = menorNumero + 1; i < maiorNumero; i++) {
         if (i % 2 != 0) {
-            sImpar+= i;
-            if (i != maiorNumero - 1) {
-                cout  << i << " - ";
-            }
+            sImpar += i;
         }
     }
 
     cout << "\nA soma dos impares entre " << menorNumero << " e " << maiorNumero << " e: " << sImpar << endl;
-
 }
 
 
 int main() {
-    exercicio15();
+    int n;
+
+    while (true) {
+        cout << "\nDigite o numero 0 para encerrar o programa" << endl;
+        cout << "\nDigite o exercicio desejado: " << endl;
+        cin >> n;
+
+        if (n == 0) {
+            cout << "\nPrograma finalizado!";
+            break;
+        }
+
+        switch (n) {
+            case 1: exercicio1();
+                break;
+            case 2: exercicio2();
+                break;
+            case 3: exercicio3();
+                break;
+            case 4: exercicio4();
+                break;
+            case 5: exercicio5();
+                break;
+            case 6: exercicio6();
+                break;
+            case 7: exercicio7();
+                break;
+            case 8: exercicio8();
+                break;
+            case 9: exercicio9();
+                break;
+            case 10: exercicio10();
+                break;
+            case 11: exercicio11();
+                break;
+            case 12: exercicio12();
+                break;
+            case 13: exercicio13();
+                break;
+            case 14: exercicio14();
+                break;
+            case 15: exercicio15();
+                break;
+            default: cout << "\nOpcao invalida! Tente de 1 a 15 ou 0 para sair." << endl;
+                break;
+        }
+    }
 }
